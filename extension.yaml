@@ -1,42 +1,42 @@
-name: goose-mcp
+name: goose-crestron-xio
 version: 0.1.0
-description: MCP Server extension for managing Crestron devices
+description: Goose extension for managing Crestron devices through the XiO Cloud service
 author: Nik
-repository: https://github.com/yourusername/goose-mcp-extension
+repository: https://github.com/yourusername/goose-crestron-xio
 license: MIT
 
 install:
-  package: goose_mcp
+  package: goose_crestron_xio
   pip_args: ["-e", "."]
 
 tools:
   - name: claim_device
     description: Claim a single device to XiO Cloud service
-    path: goose_mcp.tools.device_tools:claim_device
+    path: goose_crestron_xio.tools.device_tools:claim_device
 
   - name: bulk_claim_devices
     description: Claim multiple devices using a CSV file
-    path: goose_mcp.tools.device_tools:bulk_claim_devices
+    path: goose_crestron_xio.tools.device_tools:bulk_claim_devices
 
   - name: get_devices
     description: Get list of all devices
-    path: goose_mcp.tools.device_tools:get_devices
+    path: goose_crestron_xio.tools.device_tools:get_devices
 
   - name: get_device_status
     description: Get status of a specific device
-    path: goose_mcp.tools.device_tools:get_device_status
+    path: goose_crestron_xio.tools.device_tools:get_device_status
 
   - name: get_device_network_info
     description: Get network information for a specific device
-    path: goose_mcp.tools.device_tools:get_device_network_info
+    path: goose_crestron_xio.tools.device_tools:get_device_network_info
 
   - name: get_multi_device_status
     description: Get status for multiple devices in parallel
-    path: goose_mcp.tools.device_tools:get_multi_device_status
+    path: goose_crestron_xio.tools.device_tools:get_multi_device_status
 
   - name: get_multi_device_network_info
     description: Get network information for multiple devices in parallel
-    path: goose_mcp.tools.device_tools:get_multi_device_network_info
+    path: goose_crestron_xio.tools.device_tools:get_multi_device_network_info
 
 config:
   schema:
@@ -45,13 +45,13 @@ config:
       base_url:
         type: string
         default: "https://api.crestron.io/api"
-        description: "Base URL for the Crestron API"
+        description: "Base URL for the Crestron XiO Cloud API"
       token:
         type: string
-        description: "API Token for authentication"
+        description: "XiO Cloud API Token for authentication"
       account_id:
         type: string
-        description: "Crestron Account ID"
+        description: "Crestron XiO Cloud Account ID"
       cache_duration_minutes:
         type: integer
         default: 5
