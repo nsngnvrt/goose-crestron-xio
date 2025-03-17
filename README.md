@@ -7,7 +7,7 @@ A Goose extension for managing Crestron devices through the XiO Cloud service.
 - Python 3.8 or higher
 - Goose Desktop installed
 - Crestron XiO Cloud account with API access
-- XiO Cloud API Token and Account ID
+- API Token and Account ID from Crestron
 
 ## Features
 
@@ -19,15 +19,24 @@ A Goose extension for managing Crestron devices through the XiO Cloud service.
 
 ## Installation
 
-### Option 1: Install from GitHub
+### Option 1: Install from ZIP file (No GitHub account required)
+1. Download `goose-crestron-xio.zip`
+2. Extract the zip file
+3. Open Goose Desktop
+4. Go to Settings → Extensions
+5. Click "Install from Folder"
+6. Select the extracted `goose-crestron-xio` folder
+7. Click "Install"
+
+### Option 2: Install from GitHub
 ```bash
-goose extension install github:yourusername/goose-crestron-xio
+goose extension install github:nsngnvrt/goose-crestron-xio
 ```
 
-### Option 2: Install from Local Directory
+### Option 3: Install from Local Directory
 1. Clone this repository
    ```bash
-   git clone https://github.com/yourusername/goose-crestron-xio
+   git clone https://github.com/nsngnvrt/goose-crestron-xio
    ```
 2. Install the extension in Goose:
    ```bash
@@ -122,10 +131,6 @@ Common issues and their solutions:
 - **Connection Timeout**: Adjust `timeout_seconds` if you experience timeout issues
 - **Authentication Errors**: Verify your XiO Cloud token and account_id are correct
 - **MAC Address Format**: Ensure MAC addresses are in the format "00.10.7f.b1.e3.00"
-
-## Contributing
-
-Contributions are welcome! Please feel free to submit a Pull Request.
 
 ## License
 
