@@ -1,0 +1,69 @@
+name: goose-mcp
+version: 0.1.0
+description: MCP Server extension for managing Crestron devices
+author: Nik
+repository: https://github.com/yourusername/goose-mcp-extension
+license: MIT
+
+install:
+  package: goose_mcp
+  pip_args: ["-e", "."]
+
+tools:
+  - name: claim_device
+    description: Claim a single device to XiO Cloud service
+    path: goose_mcp.tools.device_tools:claim_device
+
+  - name: bulk_claim_devices
+    description: Claim multiple devices using a CSV file
+    path: goose_mcp.tools.device_tools:bulk_claim_devices
+
+  - name: get_devices
+    description: Get list of all devices
+    path: goose_mcp.tools.device_tools:get_devices
+
+  - name: get_device_status
+    description: Get status of a specific device
+    path: goose_mcp.tools.device_tools:get_device_status
+
+  - name: get_device_network_info
+    description: Get network information for a specific device
+    path: goose_mcp.tools.device_tools:get_device_network_info
+
+  - name: get_multi_device_status
+    description: Get status for multiple devices in parallel
+    path: goose_mcp.tools.device_tools:get_multi_device_status
+
+  - name: get_multi_device_network_info
+    description: Get network information for multiple devices in parallel
+    path: goose_mcp.tools.device_tools:get_multi_device_network_info
+
+config:
+  schema:
+    type: object
+    properties:
+      base_url:
+        type: string
+        default: "https://api.crestron.io/api"
+        description: "Base URL for the Crestron API"
+      token:
+        type: string
+        description: "API Token for authentication"
+      account_id:
+        type: string
+        description: "Crestron Account ID"
+      cache_duration_minutes:
+        type: integer
+        default: 5
+        description: "Cache duration in minutes"
+      max_retries:
+        type: integer
+        default: 3
+        description: "Maximum number of retry attempts"
+      timeout_seconds:
+        type: integer
+        default: 30
+        description: "Request timeout in seconds"
+    required:
+      - token
+      - account_id
