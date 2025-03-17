@@ -22,31 +22,33 @@ A Goose extension for managing Crestron devices through the XiO Cloud service.
 ### Option 1: Install from ZIP file (No GitHub account required)
 1. Download `goose-crestron-xio.zip`
 2. Extract the zip file
-3. Open Goose Desktop
-4. Go to Settings → Extensions
-5. Click "Install from Folder"
-6. Select the extracted `goose-crestron-xio` folder
-7. Click "Install"
+3. Open a terminal/command prompt
+4. Run the following command:
+   ```bash
+   goose extension install /path/to/extracted/goose-crestron-xio
+   ```
+   Replace `/path/to/extracted/` with the actual path where you extracted the zip file
 
-### Option 2: Install from GitHub
+### Option 2: Install from GitHub (requires GitHub access)
 ```bash
 goose extension install github:nsngnvrt/goose-crestron-xio
 ```
 
-### Option 3: Install from Local Directory
-1. Clone this repository
-   ```bash
-   git clone https://github.com/nsngnvrt/goose-crestron-xio
-   ```
-2. Install the extension in Goose:
-   ```bash
-   goose extension install path/to/goose-crestron-xio
-   ```
-
 ## Configuration
 
-The extension requires configuration through Goose Desktop's Settings page or in `~/.config/goose/config.yaml`:
+After installation, configure the extension through Goose Desktop:
 
+1. Open Goose Desktop
+2. Click the menu (⋮) in the top right
+3. Select "Settings"
+4. Under "Extensions", find "goose-crestron-xio"
+5. Configure your credentials:
+   ```yaml
+   token: "your-xio-cloud-api-token"
+   account_id: "your-xio-cloud-account-id"
+   ```
+
+Alternatively, you can configure manually in `~/.config/goose/config.yaml`:
 ```yaml
 extensions:
   goose-crestron-xio:
@@ -131,6 +133,7 @@ Common issues and their solutions:
 - **Connection Timeout**: Adjust `timeout_seconds` if you experience timeout issues
 - **Authentication Errors**: Verify your XiO Cloud token and account_id are correct
 - **MAC Address Format**: Ensure MAC addresses are in the format "00.10.7f.b1.e3.00"
+- **Installation Issues**: Make sure you're using the full path to the extension directory when installing
 
 ## License
 
